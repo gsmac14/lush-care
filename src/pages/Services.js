@@ -2,7 +2,7 @@ import React from 'react';
 import "bootstrap/dist/css/bootstrap.min.css";
 import Media from 'react-bootstrap/Media';
 
-function How () {
+function Services () {
 return(
     <ul className="list-unstyled">
   <Media as="li">
@@ -65,4 +65,4 @@ return(
 )
 }
 
-export default How;
+export default Services;
