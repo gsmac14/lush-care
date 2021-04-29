@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import "bootstrap/dist/css/bootstrap.min.css";
 import Card from "../components/Card";
 import NavConsult from "../components/NavConsult";
@@ -9,6 +9,7 @@ import { Link } from 'react-router-dom';
 
 function Home (){
   const [modalShow, setModalShow] = React.useState(false);
+  // const [lgShow, setLgShow] = useState(false);
     return(
 <>
 <Card />
