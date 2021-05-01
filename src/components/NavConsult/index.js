@@ -6,12 +6,75 @@ import Modal from "react-bootstrap/Modal";
 import Form from "react-bootstrap/Form";
 import nl2br from "react-newline-to-break";
 
+
 function NavCon(props) {
-  
-    /* allows breaks for header*/
-  
+    {/* allows breaks for header*/}
   let newText =
     "Speak to a Care Advisor Now.\nGet Questions Answered!\n214-912-7372";
+
+    {/*Array of objects containing states data*/}
+    let states =[
+        {label: "Alaska", value: "Alaska"},
+        {label: "Alabama", value: "Alabama"},
+        {label: "Arkansas", value: "Arkansas"},
+        {label: "Arizona", value: "Arizona"},
+        {label: "California", value: "California"},
+        {label: "Colorado", value: "Colorado"},
+        {label: "Connecticut", value: "Connecticut"},
+        {label: "District of Columbia", value: "District of Columbia"},
+        {label: "Delaware", value: "Delaware"},
+        {label: "Florida", value: "Florida"},
+        {label: "Georgia", value: "Georgia"},
+        {label: "Hawaii", value: "Hawaii"},
+        {label: "Iowa", value: "Iowa"},
+        {label: "Idaho", value: "Idaho"},
+        {label: "Illinois", value: "Illinois"},
+        {label: "Indiana", value: "Indiana"},
+        {label: "Kansas", value: "Kansas"},
+        {label: "Kentucky", value: "Kentucky"},
+        {label: "Louisiana", value: "Louisiana"},
+        {label: "Massachusetts", value: "Massachusetts"},
+        {label: "Maryland", value: "Maryland"},
+        {label: "Maine", value: "Maine"},
+        {label: "Michigan", value: "Michigan"},
+        {label: "Minnesota", value: "Minnesota"},
+        {label: "Missouri", value: "Missouri"},
+        {label: "Mississippi", value: "Mississippi"},
+        {label: "Montana", value: "Montana"},
+        {label: "North Carolina", value: "North Carolina"},
+        {label: "North Dakota", value: "North Dakota"},
+        {label: "Nebraska", value: "Nebraska"},
+        {label: "New Hampshire", value: "New Hampshire"},
+        {label: "New Jersey", value: "New Jersey"},
+        {label: "New Mexico", value: "New Mexico"},
+        {label: "Neveda", value: "Neveda"},
+        {label: "New York", value: "New York"},
+        {label: "Ohio", value: "Ohio"},
+        {label: "Oklahoma", value: "Oklahoma"},
+        {label: "Oregon", value: "Oregon"},
+        {label: "Pennsylvania", value: "Pennsylvania"},
+        {label: "Puerto Rico", value: "Puerto Rico"},
+        {label: "Rhode Island", value: "Rhode Island"},
+        {label: "South Carolina", value: "South Carolina"},
+        {label: "South Dakota", value: "South Dakota"},
+        {label: "Tennessee", value: "Tennessee"},
+        {label: "Texas", value: "Texas"},
+        {label: "Utah", value: "Utah"},
+        {label: "Virginia", value: "Virginia"},
+        {label: "vermont", value: "Vermont"},
+        {label: "Washington", value: "Washington"},
+        {label: "Wisconsin", value: "Wisconsin"},
+        {label: "West Virginia", value: "West Virginia"},
+        {label: "Wyoming", value: "Wyoming"}
+    ]
+
+    {/*Using state to keep track of what the selected state is*/}
+    let [state, setStates] = useState("Select a state")
+
+    {/*Used Function to update the states whenever an option is selected*/}
+    let handleStateChange = (e) => {
+        setStates(e.target.value)
+    }
 
   return (
     <>
@@ -30,25 +93,31 @@ function NavCon(props) {
           <h4 style={{ textAlign: "center" }}> {nl2br(newText)}</h4>
           <Form>
             <Form.Row>
-              <Form.Group as={Col} controlId="formGridEmail">
-                <Form.Label>Email</Form.Label>
-                <Form.Control type="email" placeholder="Enter email" />
+              <Form.Group as={Col} controlId="formFullName">
+                <Form.Label>First Name</Form.Label>
+                <Form.Control type="firstName" placeholder="Enter First Name" />
               </Form.Group>
 
-              <Form.Group as={Col} controlId="formGridPassword">
-                <Form.Label>Password</Form.Label>
-                <Form.Control type="password" placeholder="Password" />
+              <Form.Group as={Col} controlId="formGridLastName">
+                <Form.Label>Last Name</Form.Label>
+                <Form.Control type="lastName" placeholder="Last Name" />
+              </Form.Group>
+            </Form.Row>
+            <Form.Row>
+              <Form.Group as={Col} controlId="formGridPhone">
+                <Form.Label>Phone Number</Form.Label>
+                <Form.Control placeholder="123-456-7890" />
+              </Form.Group>
+
+              <Form.Group as={Col} controlId="formGridEmail">
+                <Form.Label>Email</Form.Label>
+                <Form.Control placeholder="Email" />
               </Form.Group>
             </Form.Row>
 
-            <Form.Group controlId="formGridAddress1">
-              <Form.Label>Address</Form.Label>
-              <Form.Control placeholder="1234 Main St" />
-            </Form.Group>
-
-            <Form.Group controlId="formGridAddress2">
-              <Form.Label>Address 2</Form.Label>
-              <Form.Control placeholder="Apartment, studio, or floor" />
+            <Form.Group as={Col} controlId="formGridAddress">
+              <Form.Label>Address </Form.Label>
+              <Form.Control placeholder="123 Comapany Lane" />
             </Form.Group>
 
             <Form.Row>
@@ -59,9 +128,13 @@ function NavCon(props) {
 
               <Form.Group as={Col} controlId="formGridState">
                 <Form.Label>State</Form.Label>
-                <Form.Control as="select" defaultValue="Choose...">
-                  <option>Choose...</option>
-                  <option>...</option>
+                {/*displays value of state*/}
+                {state}
+
+                {/*passing dropdown through handleStateChange so that every time a state is selected it will update and render a value*/}
+                <Form.Control as="select" onChange={handleStateChange}>
+                  <option value="Select a state">Select a state</option>
+                  {states.map((state) => <option key={state.label} value={state.value}>{state.label}</option>)}
                 </Form.Control>
               </Form.Group>
 
@@ -71,9 +144,6 @@ function NavCon(props) {
               </Form.Group>
             </Form.Row>
 
-            <Form.Group id="formGridCheckbox">
-              <Form.Check type="checkbox" label="Check me out" />
-            </Form.Group>
 
             <Button variant="primary" type="submit">
               Submit
