@@ -13,68 +13,11 @@ import { Button} from 'react-bootstrap';
 
 function Services () {
 return(
-  <>
-    {/* <ul className="list-unstyled">
-  <Media as="li">
-    <img
-      src={Hands_icon}
-      width={100}
-      height={100}
-      className="mr-3"
-      alt="Generic placeholder"
-    />
-    <Media.Body>
-      <h5>Home Support</h5>
-      <p>
-        Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque
-        ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at,
-        tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate
-        fringilla. Donec lacinia congue felis in faucibus.
-      </p>
-    </Media.Body>
-  </Media>
+  <div>
+    
 
-  <Media as="li">
-    <img
-      width={100}
-      height={100}
-      className="mr-3"
-      src={Friends}
-      alt="Generic placeholder"
-    />
-    <Media.Body>
-      <h5>List-based media object</h5>
-      <p>
-        Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque
-        ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at,
-        tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate
-        fringilla. Donec lacinia congue felis in faucibus.
-      </p>
-    </Media.Body>
-  </Media>
-
-  <Media as="li">
-    <img
-      width={100}
-      height={100}
-      className="mr-3"
-      src={Home_icon}
-      alt="Generic placeholder"
-    />
-    <Media.Body>
-      <h5>List-based media object</h5>
-      <p>
-        Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque
-        ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at,
-        tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate
-        fringilla. Donec lacinia congue felis in faucibus.
-      </p>
-    </Media.Body>
-  </Media>
-</ul> */}
-
-<CardDeck style={{paddingTop: 100}}>
-  <Card style={{width: 300, height: 300, border: 'none'}}>
+<CardDeck >
+  <Card style={{width: 300, height: 300, border: 'none', paddingTop: 50}} className='cards'>
     <Card.Img variant="top" src={Hands_icon} style={{width: 100, height: 100, marginLeft:160}}/>
     <Card.Body>
       <Card.Title style={{textAlign: 'center', marginLeft: 40}}>Personal Care</Card.Title>
@@ -88,7 +31,7 @@ return(
       </Card.Text>
     </Card.Body>
   </Card>
-  <Card style={{width: 300, height: 300, border: 'none'}}>
+  <Card style={{width: 300, height: 300, border: 'none', paddingTop: 50}} className='cards'>
     <Card.Img variant="top" src={Friends} style={{width: 100, height: 100, marginLeft:150}} />
     <Card.Body>
       <Card.Title style={{textAlign: 'center', marginLeft: 40}}>Companionship</Card.Title>
@@ -101,7 +44,7 @@ return(
       </Card.Text>
     </Card.Body>
   </Card>
-  <Card style={{width: 300, height: 300, border: 'none'}} >
+  <Card style={{width: 300, height: 300, border: 'none', paddingTop: 50}} className='cards'>
     <Card.Img variant="top" src={Home_icon} style={{width: 100, height: 100, marginLeft:150}} />
     <Card.Body>
       <Card.Title style={{textAlign: 'center', marginLeft: 40}}>Home Support</Card.Title>
@@ -116,8 +59,8 @@ return(
   </Card>
 </CardDeck>
 {/*second row*/}
-<CardDeck style={{paddingTop: 50}}>
-  <Card style={{width: 300, height: 300, border: 'none'}}>
+<CardDeck>
+  <Card style={{width: 300, height: 300, border: 'none', paddingTop: 50}} className="cards">
     <Card.Img variant="top" src={GearHead} style={{width: 100, height: 100, marginLeft:160}}/>
     <Card.Body>
       <Card.Title style={{textAlign: 'center', marginLeft: 40}}>Memory Care</Card.Title>
@@ -130,7 +73,7 @@ return(
       </Card.Text>
     </Card.Body>
   </Card>
-  <Card style={{width: 300, height: 300, border: 'none'}}>
+  <Card style={{width: 300, height: 300, border: 'none', paddingTop: 50}} className='cards'>
     <Card.Img variant="top" src={Hospital_icon} style={{width: 100, height: 100, marginLeft:150}} />
     <Card.Body>
       <Card.Title style={{textAlign: 'center', marginLeft: 40}}>Other Services</Card.Title>
@@ -143,7 +86,7 @@ return(
       </Card.Text>
     </Card.Body>
   </Card>
-  <Card style={{width: 300, height: 300, border: 'none'}} >
+  <Card style={{width: 300, height: 350, border: 'none', paddingTop: 50}} className='cards' >
     <Card.Img variant="top" src={Hand_Pink} style={{width: 100, height: 100, marginLeft:150}} />
     <Card.Body>
       <Card.Title style={{textAlign: 'center', marginLeft: 40}}>Wait There's More</Card.Title>
@@ -156,7 +99,7 @@ return(
     </Card.Body>
   </Card>
 </CardDeck>
-</>
+</div>
 )
 }
 

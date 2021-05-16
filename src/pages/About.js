@@ -8,23 +8,26 @@ import MedElderly from '../assest/images/MedElderly.jpg'
 import Founder from '../assest/images/Founder.png';
 import Jumbotron from 'react-bootstrap/Jumbotron';
 import Container from 'react-bootstrap/Container';
+import './style.css';
+
 
 
 function About() {
   const [modalShow, setModalShow] = React.useState(false);
     return(
       <>
-<div className="card mb-3 container-fluid" style={{border: 'none'}}>
+
+<div className="card mb-3 container-fluid cards" style={{border: 'none'}}>
         <div className="row g-0">
           <div className="col-md-8">
             <div className="card-body" >
               <h5 className="card-title" style={{textAlign: "center", fontSize: 50, paddingTop: 50}} >Our Care Approach</h5>
-              <p className="card-text" style={{textAlign: 'center', paddingTop: 50, fontSize: 25, paddingRight: 50, paddingLeft: 50}}>Lush Care takes a unique approach with caring for our seniors. We use flexibility and concierge-level services to manage and care for each every individual. This level of care is provided by our innovative, commpassionate, caring and commited team. </p>
+              <p className="card-text" style={{textAlign: 'center', paddingTop: 50, fontSize: 25}}>Lush Care takes a unique approach with caring for our seniors. We use flexibility and concierge-level services to manage and care for each every individual. This level of care is provided by our innovative, commpassionate, caring and commited team. </p>
               <p className="card-text"><small className="text-muted"></small></p>
             </div>
             </div>
           <div className="col-md-4">
-        <img src={ElderlyHands} style={{width: 450, height: 450, margin: 0}}alt="Elderly with hat"/>
+        <img src={ElderlyHands} style={{width: 450, height: 450, paddingRight: 90}}alt="Elderly with hat"/>
           </div>
         
         </div>
@@ -46,7 +49,7 @@ show={modalShow}
 onHide={() => setModalShow(false)}
 
  />
- <div className="card mb-3 container-fluid" style={{border: 'none'}}>
+ <div className="card mb-3 container-fluid cards" style={{border: 'none'}}>
         <div className="row g-0">
           <div className="col-md-4">
         <img src={MedElderly} style={{width: 450, height: 450, margin: 0}}alt="Elderly with hat"/>
@@ -64,7 +67,7 @@ onHide={() => setModalShow(false)}
 
 
 
-      <Jumbotron fluid>
+      <Jumbotron fluid >
   <Container>
     {/* <h1>Fluid jumbotron</h1> */}
     <h1 style={{textAlign: 'center', fontSize: 30, paddingLeft:300 , paddingRight: 300 }}>

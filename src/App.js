@@ -8,6 +8,7 @@ import Services from "./pages/Services";
 import "./components/FontAwesomeIcons";
 import "./App.css";
 import Footer from "./components/Footer";
+import Careers from "./pages/Careers";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
       <Route exact path="/" component={Home} />
       <Route path="/About" component={About} />
       <Route path="/Services" component={Services} />
+      <Route path="/Careers" component={Careers} />
       </Switch>
       <Footer />
    </div>
