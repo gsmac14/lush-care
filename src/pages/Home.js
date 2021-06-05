@@ -18,16 +18,15 @@ function Home (){
 
 
 
-<Card  />
-{/*button to open modal*/}
+<Card/>
 
 
-<Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" style={{marginBottom: 0, paddingBottom: 0, marginTop: 0, paddingTop:0}}>
-  <Navbar.Brand style={{margin: 0, padding: 0}}className="brand" brand as={Link} to="/Home">Let Us Help Your Today!</Navbar.Brand>
+<Navbar collapseOnSelect expand="lg"  style={{marginBottom: 0, paddingBottom: 0, marginTop: 0, paddingTop:0, backgroundColor: 'black'}}>
+  <Navbar.Brand style={{margin: 0, paddingTop: 10, fontSize: 20, color: "#ffe4e1" }}className="brand" brand as={Link} to="/Home">Let Us Help Your Today!</Navbar.Brand>
   <Navbar.Toggle aria-controls="responsive-navbar-nav" />
   <Navbar.Collapse id="responsive-navbar-nav">
-    <Nav className="ml-auto">
-<Button style={{float: 'right'}} variant="info" size="lg" onClick={() => setModalShow(true)} centered>
+    <Nav className="ml-auto cards">
+<Button style={{float: 'right',  }} variant="info" size="lg" onClick={() => setModalShow(true)} centered>
         Schedule Free Consultation
       </Button>
 
@@ -39,7 +38,7 @@ show={modalShow}
 onHide={() => setModalShow(false)}
 
 />
-<Jumbotron />
+<Jumbotron className="cards"/>
 <Card2 />
 <Mission />
 

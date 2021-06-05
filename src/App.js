@@ -9,8 +9,17 @@ import "./components/FontAwesomeIcons";
 import "./App.css";
 import Footer from "./components/Footer";
 import Careers from "./pages/Careers";
+import useMediaQuery from 'react-responsive'
 
 function App() {
+  const isDesktopOrLaptop = useMediaQuery({
+    query: '(max-width: 1224px)'
+  })
+  const isBigScreen = useMediaQuery({ query: '(min-width: 1824px)' })
+  const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1224px)' })
+  const isPortrait = useMediaQuery({ query: '(orientation: portrait)' })
+  const isRetina = useMediaQuery({ query: '(min-resolution: 2dppx)' })
+
   return (
     <Router>
    <div>
@@ -23,7 +32,7 @@ function App() {
       <Route path="/Services" component={Services} />
       <Route path="/Careers" component={Careers} />
       </Switch>
-      <Footer />
+    
    </div>
 
 

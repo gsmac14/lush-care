@@ -18,8 +18,16 @@ function NavCon(props) {
   const [city, setCity] = useState("");
   const [usstate, setUsState] = useState("");
   const [zip, setZip] = useState("");
+  const [validated, setValidated] = useState(false);
   
   function sendEmail(e) {
+    const form = e.currentTarget;
+    if(form.checkValidity() === false){
+      e.preventDefault();
+      e.stopPropagation();
+    }
+    setValidated(true);
+
     e.preventDefault();
 
     emailjs.sendForm('service_pvoqs58', 'template_bfyjweo', e.target, "user_YmMACS2dREJP4aWwQGMNQ" )
@@ -130,46 +138,47 @@ function NavCon(props) {
         <Modal.Body>
           <h4 style={{ textAlign: "center" }}> {nl2br(newText)}</h4>
        
-          <Form className="contact-form" onSubmit={sendEmail}  >
+          <Form className="contact-form" noValidate validated={validated} onSubmit={sendEmail}  >
             <Form.Row>
               <Form.Group as={Col} controlId="formFirstlName">
                 <Form.Label>First Name</Form.Label>
-                <Form.Control type="firstName" placeholder="Enter First Name" value={firstName}  onChange = {(e) => setFirstName(e.target.value)} name='firstName' />
+                <Form.Control type="firstName" placeholder="Enter First Name" value={firstName}  onChange = {(e) => setFirstName(e.target.value)} name='firstName' required/>
+                <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
               </Form.Group>
 
               <Form.Group as={Col} controlId="formGridLastName">
                 <Form.Label>Last Name</Form.Label>
-                <Form.Control type="lastName" placeholder="Last Name" value={lastName}  onChange = {(e) => setLastName(e.target.value)} name='lastName' />
+                <Form.Control type="lastName" placeholder="Last Name" value={lastName}  onChange = {(e) => setLastName(e.target.value)} name='lastName' required/>
               </Form.Group>
             </Form.Row>
             <Form.Row>
               <Form.Group as={Col} controlId="formGridPhone">
                 <Form.Label>Phone Number</Form.Label>
-                <Form.Control type="phone" placeholder="123-456-7890" value={phone}  onChange = {(e) => setPhone(e.target.value)} name='phone' />
+                <Form.Control type="phone" placeholder="123-456-7890" value={phone}  onChange = {(e) => setPhone(e.target.value)} name='phone' required />
               </Form.Group>
 
               <Form.Group as={Col} controlId="formGridEmail">
                 <Form.Label>Email</Form.Label>
-                <Form.Control type='email' placeholder="Email" value={email}  onChange = {(e) => setEmail(e.target.value)} name='email'/>
+                <Form.Control type='email' placeholder="Email" value={email}  onChange = {(e) => setEmail(e.target.value)} name='email' required/>
               </Form.Group>
             </Form.Row>
 
             <Form.Group as={Col} controlId="formGridAddress">
               <Form.Label>Address </Form.Label>
-              <Form.Control type='address' placeholder="123 Comapany Lane" value={address}  onChange = {(e) => setAddress(e.target.value)} name='address' />
+              <Form.Control type='address' placeholder="123 Comapany Lane" value={address}  onChange = {(e) => setAddress(e.target.value)} name='address' required />
             </Form.Group>
 
             <Form.Row>
               <Form.Group as={Col} controlId="formGridCity">
                 <Form.Label>City</Form.Label>
-                <Form.Control type='city' value={city}  onChange = {(e) => setCity(e.target.value)} name='city' />
+                <Form.Control type='city' value={city}  onChange = {(e) => setCity(e.target.value)} name='city' required />
               </Form.Group>
 
               <Form.Group as={Col} controlId="formGridState">
                 <Form.Label>State</Form.Label>
 
                 {/*passing dropdown through handleStateChange so that every time a state is selected it will update and render a value*/}
-                <Form.Control as="select" value={state.option} type='state'  onChange={handleStateChange.value} name='state'>
+                <Form.Control as="select" value={state.option} type='state'  onChange={handleStateChange.value} name='state' required>
                   <option value= {usstate} >Select a state</option>
                   {states.map((state) => <option key={state.label} value={state.value}>{state.label}</option>)}
                 </Form.Control>
@@ -177,7 +186,7 @@ function NavCon(props) {
 
               <Form.Group as={Col} controlId="formGridZip">
                 <Form.Label>Zip</Form.Label>
-                <Form.Control type='zip' value={zip}  onChange = {(e) => setZip(e.target.value) }  name='zip'/>
+                <Form.Control type='zip' value={zip}  onChange = {(e) => setZip(e.target.value) }  name='zip' required/>
               </Form.Group>
             </Form.Row>
 
