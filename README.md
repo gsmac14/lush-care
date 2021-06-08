@@ -11,9 +11,9 @@
   * [Liscense](#liscense)
   * [Contact](#contact)
   
+![Alt text](/Lush-Pic.png)
   ## Description
   	This project was created for a client in the caregiver industry. 
-![Alt text](/assest/images/Lush-Pic.png)
   ## Technologies
   React API's, bootstrap, email-js
 
